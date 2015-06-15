@@ -1,65 +1,65 @@
-{attach} = require 'zootorial'
+# {attach} = require 'zootorial'
 
-class PopupButton
-  @fromDOM: (el) ->
-    el = $(el)
-    popup = el.parents().last().find el.attr 'data-popup'
+# class PopupButton
+#   @fromDOM: (el) ->
+#     el = $(el)
+#     popup = el.parents().last().find el.attr 'data-popup'
 
-    position = el.attr('data-popup-position') || ''
-    [attachAt, attachTo, attachMargin] = position.split /\s*\,\s*/g
-    attachAt ?= @::attachAt
-    attachTo ?= @::attachTo
-    attachMargin ?= @::attachMargin
+#     position = el.attr('data-popup-position') || ''
+#     [attachAt, attachTo, attachMargin] = position.split /\s*\,\s*/g
+#     attachAt ?= @::attachAt
+#     attachTo ?= @::attachTo
+#     attachMargin ?= @::attachMargin
 
-    new @ {el, popup, attachAt, attachTo, attachMargin}
+#     new @ {el, popup, attachAt, attachTo, attachMargin}
 
-  el: null
-  popup: null
+#   el: null
+#   popup: null
 
-  attachAt: 'center bottom'
-  attachTo: 'center top'
-  attachMargin: 0
+#   attachAt: 'center bottom'
+#   attachTo: 'center top'
+#   attachMargin: 0
 
-  classDelay: 0
+#   classDelay: 0
 
-  eventId: NaN
+#   eventId: NaN
 
-  constructor: (params = {}) ->
-    @[key] = value for own key, value of params when key of @
+#   constructor: (params = {}) ->
+#     @[key] = value for own key, value of params when key of @
 
-    @el.on 'click', @onClick
+#     @el.on 'click', @onClick
 
-    @popup.addClass 'hidden'
-    @popup.remove()
-    @popup.prepend '<button name="close">&times;</button>'
+#     @popup.addClass 'hidden'
+#     @popup.remove()
+#     @popup.prepend '<button name="close">&times;</button>'
 
-  onClick: =>
-    @toggle()
+#   onClick: =>
+#     @toggle()
 
-  onClickClose: =>
-    @close()
+#   onClickClose: =>
+#     @close()
 
-  onDocumentClick: ({target}) =>
-    @close() unless $(target).parents().andSelf().is @el.add @popup
+#   onDocumentClick: ({target}) =>
+#     @close() unless $(target).parents().andSelf().is @el.add @popup
 
-  toggle: ->
-    if @el.hasClass 'open' then @close() else @open()
+#   toggle: ->
+#     if @el.hasClass 'open' then @close() else @open()
 
-  open: ->
-    @el.addClass 'open'
-    @popup.appendTo 'body'
-    attach @popup, @attachAt.split(/\s/), @el, @attachTo.split(/\s/), margin: @attachMargin
-    setTimeout $.proxy(@popup, 'removeClass', 'hidden'), @classDelay
+#   open: ->
+#     @el.addClass 'open'
+#     @popup.appendTo 'body'
+#     attach @popup, @attachAt.split(/\s/), @el, @attachTo.split(/\s/), margin: @attachMargin
+#     setTimeout $.proxy(@popup, 'removeClass', 'hidden'), @classDelay
 
-    @popup.on 'click', 'button[name="close"]', @onClickClose
-    $(document).on 'click', @onDocumentClick
+#     @popup.on 'click', 'button[name="close"]', @onClickClose
+#     $(document).on 'click', @onDocumentClick
 
-  close: ->
-    @el.removeClass 'open'
-    @popup.addClass 'hidden'
-    setTimeout $.proxy(@popup, 'remove'), @classDelay
+#   close: ->
+#     @el.removeClass 'open'
+#     @popup.addClass 'hidden'
+#     setTimeout $.proxy(@popup, 'remove'), @classDelay
 
-    @popup.off 'click'
-    $(document).off 'click', @onDocumentClick
+#     @popup.off 'click'
+#     $(document).off 'click', @onDocumentClick
 
-module.exports = PopupButton
+# module.exports = PopupButton

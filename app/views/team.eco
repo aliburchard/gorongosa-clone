@@ -29,11 +29,6 @@
 
       <div class="content" data-nav="organizations">
         <h2>Participating Organizations</h2>
-        <div class="team-member">
-          <h3>Wisconsin Department of Natural Resources</h3>
-          <img src="./images/logos/wdnr.jpg">
-          <p>Members of the Snapshot Wisconsin team are scientists at the Wisconsin Department of Natural Resources (WDNR). The WDNR provided funding for the purchase of trail cameras and provides ongoing support for the project. The WDNR, in partnership with individuals and organizations, manages "fish, wildlife, forests, parks, air and water resources while promoting a healthy, sustainable environment and a full range of outdoor opportunities."</p>
-        </div>
 
         <div class="team-member">
           <h3>University of Wisconsin-Madison</h3>

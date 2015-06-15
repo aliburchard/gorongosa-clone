@@ -129,7 +129,7 @@ module.exports =
       description: 'This tall bird is white in color with red facial skin and long black legs. Young are reddish brown with scattered white feathers.'
     deerWhiteTailed:
       label: 'Deer'
-      description: 'Lightly built, whitetail deer are grayish brown to reddish brown in color. The underside of their short tail is white. Males have antlers which fork off a main branch and the young are reddish brown in color with white spots. <b>Please select an answer in all four categories below!</b>'
+      description: 'Lightly built, whitetail deer are grayish brown to reddish brown in color. The underside of their short tail is white. Males have antlers which fork off a main branch and the young are reddish brown in color with white spots.'
     dogDomestic:
       label: 'Dog, Domestic'
       description: 'Domestic dogs come in all shapes and sizes. Look for unique coloration or patterns not found in the wild. Also look for signs of humans (including a collar or leash) to differentiate domestic dogs from their wild canid counterparts.'
